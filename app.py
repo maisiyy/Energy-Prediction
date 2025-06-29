@@ -9,6 +9,8 @@ model_file = open('rf_model_compressed.pkl', 'rb')
 rf_model = joblib.load(model_file)
 
 
+scaler = joblib.load("scaler.pkl")
+
 
 with open("scaler.pkl", "rb") as scaler_file:
     scaler = pickle.load(scaler_file)
