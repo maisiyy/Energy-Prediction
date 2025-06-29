@@ -7,8 +7,8 @@ import numpy as np
 rf_model = joblib.load("rf_model_compressed.pkl")
 
 # Load the scaler using pickle
-with open("scaler.pkl", "rb") as scaler_file:
-    scaler = pickle.load(scaler_file)
+with open("scaler.pkl", "rb") as f:
+    scaler = pickle.load(f)
 
 # Define the top 10 features used for prediction
 top_rf_features = ['RH_8', 'lights', 'RH_out', 'T2', 'RH_9', 'RH_6', 'RH_5', 'RH_1', 'T8', 'Press_mm_hg']
