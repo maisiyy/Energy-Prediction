@@ -10,11 +10,23 @@ rf_model = joblib.load("rf_model_compressed.pkl")
 with open("scaler.pkl", "rb") as f:
     scaler = pickle.load(f)
 
-# Define the top 10 features used for prediction
-top_rf_features = ['RH_8', 'lights', 'RH_out', 'T2', 'RH_9', 'RH_6', 'RH_5', 'RH_1', 'T8', 'Press_mm_hg']
+
+# Define the top 10 features used for prediction with descriptions
+top_rf_features = {
+    'RH_8': 'Humidity in the teenager room 2 (%)',
+    'lights': 'Energy consumption of light fixtures (Wh)',
+    'RH_out': 'Humidity outside the building (%)',
+    'T2': 'Temperature in the living room (°C)',
+    'RH_9': 'Humidity in the parents\' room (%)',
+    'RH_6': 'Humidity outside the building (north side) (%)',
+    'RH_5': 'Humidity in the bathroom (%)',
+    'RH_1': 'Humidity in the kitchen area (%)',
+    'T8': 'Temperature in the teenager room 2 (°C)',
+    'Press_mm_hg': 'Atmospheric pressure (mm Hg)'
+}
 
 # Streamlit app interface
-st.title("Energy Consumption Prediction App")
+st.title("🏠 Smart Home Energy Consumption Predictor")
 st.write("Enter values for the following features to predict whether the energy consumption is High or Low:")
 
 # Create input fields for each feature
@@ -36,7 +48,7 @@ if st.button("Predict"):
 
     # Display result
     if prediction == 1:
-        st.success("Predicted Energy Consumption: High")
+        st.success("Predicted Energy Consumption: High 🔥")
     else:
-        st.success("Predicted Energy Consumption: Low")
+        st.success("Predicted Energy Consumption: Low ❄️")
 
