@@ -1,11 +1,12 @@
 import streamlit as st
 import pickle
-import numpy as np
 import joblib
+import numpy as np
 
-# Load the trained Random Forest model and scaler
+# Load the trained Random Forest model using joblib
 rf_model = joblib.load("rf_model_compressed.pkl")
 
+# Load the scaler using pickle
 with open("scaler.pkl", "rb") as scaler_file:
     scaler = pickle.load(scaler_file)
 
@@ -38,3 +39,4 @@ if st.button("Predict"):
         st.success("Predicted Energy Consumption: High")
     else:
         st.success("Predicted Energy Consumption: Low")
+
