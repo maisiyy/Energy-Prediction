@@ -4,13 +4,8 @@ import numpy as np
 import joblib
 
 # Load the trained Random Forest model and scaler
-
-model_file = open('rf_model_compressed.pkl', 'rb')
-rf_model = joblib.load(model_file)
-
-
-scaler = joblib.load("scaler.pkl")
-
+with open("rf_model_compressed.pkl", "rb") as model_file:
+    rf_model = pickle.load(model_file)
 
 with open("scaler.pkl", "rb") as scaler_file:
     scaler = pickle.load(scaler_file)
