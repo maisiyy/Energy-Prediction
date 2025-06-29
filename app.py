@@ -47,7 +47,7 @@ if st.button("Predict"):
 
     # Display result
     if prediction == 1:
-        st.success("Predicted Energy Consumption: High")
+        st.success("Predicted Energy Consumption: High 🔥")
     else:
-        st.success("Predicted Energy Consumption: Low")
+        st.success("Predicted Energy Consumption: Low ❄️")
 
