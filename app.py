@@ -10,19 +10,18 @@ rf_model = joblib.load("rf_model_compressed.pkl")
 with open("scaler.pkl", "rb") as f:
     scaler = pickle.load(f)
 
-
 # Define the top 10 features used for prediction with descriptions
 top_rf_features = {
-    'RH_8': 'Humidity in the teenager room 2 (%)',
-    'lights': 'Energy consumption of light fixtures (Wh)',
-    'RH_out': 'Humidity outside the building (%)',
-    'T2': 'Temperature in the living room (°C)',
-    'RH_9': 'Humidity in the parents\' room (%)',
-    'RH_6': 'Humidity outside the building (north side) (%)',
-    'RH_5': 'Humidity in the bathroom (%)',
-    'RH_1': 'Humidity in the kitchen area (%)',
-    'T8': 'Temperature in the teenager room 2 (°C)',
-    'Press_mm_hg': 'Atmospheric pressure (mm Hg)'
+    'RH_8': 'Humidity in the teenager room 2 (%)',
+    'lights': 'Energy consumption of light fixtures (Wh)',
+    'RH_out': 'Humidity outside the building (%)',
+    'T2': 'Temperature in the living room (°C)',
+    'RH_9': 'Humidity in the parents\' room (%)',
+    'RH_6': 'Humidity outside the building (north side) (%)',
+    'RH_5': 'Humidity in the bathroom (%)',
+    'RH_1': 'Humidity in the kitchen area (%)',
+    'T8': 'Temperature in the teenager room 2 (°C)',
+    'Press_mm_hg': 'Atmospheric pressure (mm Hg)'
 }
 
 # Streamlit app interface
@@ -31,8 +30,8 @@ st.write("Enter values for the following features to predict whether the energy 
 
 # Create input fields for each feature
 user_input = []
-for feature in top_rf_features:
-    value = st.number_input(f"{feature}", value=0.0)
+for feature, description in top_rf_features.items():
+    value = st.number_input(f"{feature}", value=0.0, help=description)
     user_input.append(value)
 
 # Predict button
@@ -48,7 +47,7 @@ if st.button("Predict"):
 
     # Display result
     if prediction == 1:
-        st.success("Predicted Energy Consumption: High 🔥")
+        st.success("Predicted Energy Consumption: High")
     else:
-        st.success("Predicted Energy Consumption: Low ❄️")
+        st.success("Predicted Energy Consumption: Low")
 
