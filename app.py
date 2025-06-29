@@ -51,3 +51,27 @@ if st.button("Predict"):
     else:
         st.success("Predicted Energy Consumption: Low ❄️")
 
+# Explain influencing factors
+st.subheader("📈 Key Influencing Factors")
+st.markdown("""
+This prediction is based on the following top 10 features that influence energy consumption in a smart home:
+
+- **RH_8**: Humidity in the teenager room 2 (%)
+- **lights**: Energy consumption of light fixtures (Wh)
+- **RH_out**: Humidity outside the building (%)
+- **T2**: Temperature in the living room (°C)
+- **RH_9**: Humidity in the parents' room (%)
+- **RH_6**: Humidity outside the building (north side) (%)
+- **RH_5**: Humidity in the bathroom (%)
+- **RH_1**: Humidity in the kitchen area (%)
+- **T8**: Temperature in the teenager room 2 (°C)
+- **Press_mm_hg**: Atmospheric pressure (mm Hg)
+
+These features were selected based on their statistical importance in predicting whether the household's energy consumption is high or low.
+""")
+# Footer
+st.markdown("---")
+st.caption("""
+*Note: Predictions are based on median energy consumption thresholds.*  
+*Model trained on the UCI Appliances Energy Prediction Dataset.*
+""")
