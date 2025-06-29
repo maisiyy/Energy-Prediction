@@ -56,16 +56,16 @@ st.subheader("📈 Key Influencing Factors")
 st.markdown("""
 This prediction is based on the following top 10 features that influence energy consumption in a smart home:
 
-- **Humidity in Children Room (%)**: Humidity in the teenager room 2
-- **Lighting Energy Consumption (Wh)**: Energy used by light fixtures
-- **Outdoor Humidity (%)**: Humidity outside the building
-- **Living Room Temperature (°C)**: Temperature in the living room
-- **Parents' Room Humidity (%)**: Humidity in the parents' room
-- **North Side Outdoor Humidity (%)**: Humidity outside the building (north side)
-- **Bathroom Humidity (%)**: Humidity in the bathroom
-- **Kitchen Humidity (%)**: Humidity in the kitchen area
-- **Children Room Temperature (°C)**: Temperature in the teenager room 2
-- **Atmospheric Pressure (mm Hg)**: Pressure from the weather station
+- **Humidity in Children Room (RH_8) **: Humidity in the teenager room 
+- **Lighting Energy Consumption (lights)**: Energy used by light fixtures
+- **Outdoor Humidity (RH_out)**: Humidity outside the building
+- **Living Room Temperature (T2)**: Temperature in the living room
+- **Parents' Room Humidity (RH_9)**: Humidity in the parents' room
+- **North Side Outdoor Humidity (RH_6)**: Humidity outside the building (north side)
+- **Bathroom Humidity (RH_5)**: Humidity in the bathroom
+- **Kitchen Humidity (RH_1)**: Humidity in the kitchen area
+- **Children Room Temperature (T8)**: Temperature in the teenager room 
+- **Atmospheric Pressure (Press_mm_hg)**: Pressure from the building
 
 These features were selected based on their statistical importance in predicting whether the household's energy consumption is high or low.
 """)
