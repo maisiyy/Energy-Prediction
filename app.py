@@ -28,14 +28,31 @@ top_rf_features = {
 st.title("🏠 Smart Home Energy Consumption Predictor")
 st.write("Enter values for the following features to predict whether the energy consumption is High or Low:")
 
-# Create input fields for each feature
-user_input = []
-for feature, label in top_rf_features.items():
-    value = st.number_input(f"{label}", value=0.0)
-    user_input.append(value)
+# Create two columns for input fields
+col1, col2 = st.columns(2)
 
-# Predict button
-if st.button("Predict"):
+# Split features into two groups (5 each)
+features_list = list(top_rf_features.items())
+left_features = features_list[:5]
+right_features = features_list[5:]
+
+user_input = []
+
+# Left column inputs
+with col1:
+    for feature, label in left_features:
+        value = st.number_input(f"{label}", value=0.0, key=f"left_{feature}")
+        user_input.append(value)
+
+# Right column inputs
+with col2:
+    for feature, label in right_features:
+        value = st.number_input(f"{label}", value=0.0, key=f"right_{feature}")
+        user_input.append(value)
+
+# Predict button (centered)
+st.write("")  # Add some space
+if st.button("Predict", type="primary"):
     # Convert input to numpy array and reshape
     input_array = np.array(user_input).reshape(1, -1)
 
@@ -56,7 +73,7 @@ st.subheader("📈 Key Influencing Factors")
 st.markdown("""
 This prediction is based on the following top 10 features that influence energy consumption in a smart home:
 
-- **Humidity in Children Room (RH_8) **: Humidity in the teenager room 
+- **Humidity in Children Room (RH_8)**: Humidity in the teenager room 
 - **Lighting Energy Consumption (lights)**: Energy used by light fixtures
 - **Outdoor Humidity (RH_out)**: Humidity outside the building
 - **Living Room Temperature (T2)**: Temperature in the living room
@@ -76,4 +93,3 @@ st.caption("""
 *Note: Predictions are based on median energy consumption thresholds.*  
 *Model trained on the UCI Appliances Energy Prediction Dataset.*
 """)
-
