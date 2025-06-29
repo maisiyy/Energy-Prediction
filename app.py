@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 # Load the trained Random Forest model and scaler
-with open("rf_model.pkl", "rb") as model_file:
+with open("rf_model_compressed.pkl", "rb") as model_file:
     rf_model = pickle.load(model_file)
 
 with open("scaler.pkl", "rb") as scaler_file:
