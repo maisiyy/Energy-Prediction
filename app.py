@@ -8,8 +8,7 @@ import joblib
 model_file = open('rf_model_compressed.pkl', 'rb')
 rf_model = joblib.load(model_file)
 
-with open("rf_model_compressed.pkl", "rb") as model_file:
-    rf_model = pickle.load(model_file)
+
 
 with open("scaler.pkl", "rb") as scaler_file:
     scaler = pickle.load(scaler_file)
