@@ -1,51 +1,55 @@
-🏙️ Machine Learning-Based Prediction of Household Energy Consumption for Smart Cities
-This project leverages machine learning to predict household appliance energy usage using environmental and time-based variables. Built for smart city applications, it aims to optimize energy efficiency, reduce waste, and support sustainable urban living.
+# 🏙️ Machine Learning-Based Prediction of Household Energy Consumption for Smart Cities
 
-🔍 Project Overview
-Goal: Predict household appliance energy consumption using sensor and weather data.
+This project uses machine learning to predict household appliance energy consumption based on indoor sensor data and outdoor weather conditions. Designed for smart city applications, it supports energy optimization, sustainability, and intelligent resource management.
 
-Dataset: UCI Appliances Energy Prediction — includes indoor temperature/humidity readings, outdoor weather conditions, and timestamped energy usage.
+## 📦 Dataset
 
-Target Variable: appliances (energy consumption in Wh)
+- **Source**: UCI Machine Learning Repository – [Appliances Energy Prediction](https://archive.ics.uci.edu/ml/datasets/Appliances+energy+prediction)
+- **Target Variable**: `appliances` (energy consumption in Wh)
+- **Features**:
+  - Indoor temperature and humidity (`T1–T9`, `RH_1–RH_9`)
+  - Outdoor weather (`T_out`, `RH_out`, `Windspeed`, `Visibility`, `Press_mm_hg`, `Tdewpoint`)
+  - Time-based patterns (`date`)
+  - Random variables (`rv1`, `rv2`)
 
-📊 Key Features
-Indoor climate data: T1–T9, RH_1–RH_9
+## 📊 Exploratory Data Analysis
 
-Outdoor weather: T_out, RH_out, Windspeed, Visibility, Press_mm_hg, Tdewpoint
+- Visualized feature distributions and correlations
+- Identified key environmental drivers of energy consumption
+- Handled missing values and scaled features for modeling
 
-Time-based patterns: date
+## 🤖 Machine Learning Models
 
-Random variables: rv1, rv2 (for simulation purposes)
+Two algorithms were implemented and compared:
 
-🧠 Machine Learning Workflow
-Exploratory Data Analysis: Visualize trends, correlations, and feature distributions.
+### 1. Random Forest Regressor
+- Captures non-linear relationships
+- Provides feature importance
+- Robust to overfitting
 
-Preprocessing: Handle missing values, scale features, and engineer time-based variables.
+### 2. Linear Regression
+- Simple and interpretable
+- Serves as a baseline model
 
-Modeling: Compare two algorithms:
+## 📈 Evaluation Metrics
 
-Random Forest Regressor: Robust to non-linear relationships and feature importance analysis.
+- **Regression**: RMSE, MAE, R²
+- **Classification (if discretized)**: Confusion Matrix
 
-Linear Regression: Interpretable baseline model for comparison.
+## 🧪 Feature Selection
 
-Evaluation: Metrics include RMSE, MAE, and R². Confusion matrix used for classification-based evaluation (if discretized).
+- **Random Forest**: Gini importance
+- **Linear Regression**: Correlation and p-values
 
-Feature Selection:
+## 🚀 Deployment
 
-RF: Based on Gini importance
+- **App**: Built with Streamlit (`app.py`)
+- **Model**: Pre-trained Random Forest (`rf_model_compressed.pkl`)
+- **Scaler**: StandardScaler object (`scaler.pkl`)
+- **Dependencies**: Listed in `requirements.txt`
 
-LR: Based on correlation and p-values
+## ✅ Outcome
 
-🚀 Deployment
-Streamlit app (app.py) for interactive prediction
+Random Forest was selected for deployment due to its superior performance and robustness. The model enables smart homes to predict and manage energy usage more efficiently.
 
-Pre-trained model (rf_model_compressed.pkl) and scaler (scaler.pkl) included
-
-Requirements listed in requirements.txt
-
-✅ Outcomes
-Identified key environmental drivers of energy consumption
-
-Demonstrated model performance and interpretability
-
-Proposed Random Forest as the preferred model for deployment due to higher accuracy and robustness
+---
